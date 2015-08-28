@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B0245EA1B91182F001B5DB4 /* PropellerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerListener.h; sourceTree = "<group>"; };
 		6B9BC6261B8FCDA4000C4655 /* SwiftBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9BC62A1B8FCDA4000C4655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 				6B9BC6291B8FCDA4000C4655 /* Supporting Files */,
 				6BE301371B90C5AA003A93DB /* SwiftBridge-Bridging-Header.h */,
 				6BE301431B90F6C8003A93DB /* PropellerListener.m */,
+				6B0245EA1B91182F001B5DB4 /* PropellerListener.h */,
 			);
 			path = SwiftBridge;
 			sourceTree = "<group>";

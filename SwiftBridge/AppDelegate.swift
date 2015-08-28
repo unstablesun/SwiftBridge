@@ -21,15 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var rootViewController = self.window!.rootViewController
 
         PropellerSDK.setRootViewController(rootViewController)
-        PropellerSDK.initialize("54c2e9ff636f7206e7361c00", gameSecret: "9bafa70c-f6ae-d1e6-d5a9-28fa438e9b4e")
+        PropellerSDK.initialize("50b665d167379a020000000b", gameSecret: "a918a013-842e-ceb9-19ec-c0f981894d85")
         
         
-        PropellerSDK.setOrientationProtrait()
+        PropellerSDK.setOrientationLandscape()
 
         var _psdk = PropellerSDK.instance
         _psdk()!.setLanguageCode("en")
-        
-        
         
         
         return true

@@ -7,10 +7,8 @@
 //
 
 #import "PropellerSDK/PropellerSDK.h"
+#import "PropellerListener.h"
 
-@interface PropellerListener : NSObject <PropellerSDKDelegate>
-
-@end
 
 
 @implementation PropellerListener

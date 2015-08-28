@@ -11,20 +11,25 @@ import UIKit
 class ViewController: UIViewController
 {
 
+    var instanceOfPropellerDelegate: PropellerListener? = nil
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        instanceOfPropellerDelegate = PropellerListener()
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-
+    @IBAction func LaunchButton(sender: UIButton)
+    {
+        var _psdk = PropellerSDK.instance
+        _psdk()!.launch(instanceOfPropellerDelegate)
+    }
 
 }
 
