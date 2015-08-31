@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var rootViewController = self.window!.rootViewController
 
         PropellerSDK.setRootViewController(rootViewController)
+        
+        //use best game production for testing
         PropellerSDK.initialize("50b665d167379a020000000b", gameSecret: "a918a013-842e-ceb9-19ec-c0f981894d85")
         
         

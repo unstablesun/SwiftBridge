@@ -11,6 +11,9 @@
 
 @interface PropellerListener : NSObject <PropellerSDKDelegate>
 
+
+- (void)submitMatchResult:(long)score;
+
 @end
 
 #endif

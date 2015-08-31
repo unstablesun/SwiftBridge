@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2E5CA51B94BA6400D700C3 /* menubutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2E5CA41B94BA6400D700C3 /* menubutton.png */; };
 		6B9BC62C1B8FCDA4000C4655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */; };
 		6B9BC62E1B8FCDA4000C4655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9BC62D1B8FCDA4000C4655 /* ViewController.swift */; };
 		6B9BC6311B8FCDA4000C4655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BC62F1B8FCDA4000C4655 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		6B0245EA1B91182F001B5DB4 /* PropellerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerListener.h; sourceTree = "<group>"; };
+		6B2E5CA41B94BA6400D700C3 /* menubutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubutton.png; sourceTree = "<group>"; };
 		6B9BC6261B8FCDA4000C4655 /* SwiftBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9BC62A1B8FCDA4000C4655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		6B9BC6281B8FCDA4000C4655 /* SwiftBridge */ = {
 			isa = PBXGroup;
 			children = (
+				6B2E5CA41B94BA6400D700C3 /* menubutton.png */,
 				6BE301271B90C19F003A93DB /* PropellerSDK */,
 				6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */,
 				6B9BC62D1B8FCDA4000C4655 /* ViewController.swift */,
@@ -239,6 +242,7 @@
 				6B9BC6361B8FCDA4000C4655 /* LaunchScreen.xib in Resources */,
 				6B9BC6331B8FCDA4000C4655 /* Images.xcassets in Resources */,
 				6BE301281B90C19F003A93DB /* PropellerSDK in Resources */,
+				6B2E5CA51B94BA6400D700C3 /* menubutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

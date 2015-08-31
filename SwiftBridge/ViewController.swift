@@ -18,6 +18,12 @@ class ViewController: UIViewController
         super.viewDidLoad()
         
         instanceOfPropellerDelegate = PropellerListener()
+        
+        
+        
+        var _psdk = PropellerSDK.instance
+        _psdk()!.syncChallengeCounts()
+
     }
 
     override func didReceiveMemoryWarning()
@@ -31,5 +37,20 @@ class ViewController: UIViewController
         _psdk()!.launch(instanceOfPropellerDelegate)
     }
 
+    @IBAction func SetWin(sender: AnyObject)
+    {
+        let randomScoreadd = Int(arc4random_uniform(10000))
+        instanceOfPropellerDelegate?.submitMatchResult(10000 + randomScoreadd)
+    }
+    
+    @IBAction func SetLose(sender: AnyObject)
+    {
+        let randomScoreadd = Int(arc4random_uniform(500))
+        instanceOfPropellerDelegate?.submitMatchResult(500 + randomScoreadd)
+    }
+    
 }
+
+
+
 
