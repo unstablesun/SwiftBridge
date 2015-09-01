@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //use best game production for testing
         PropellerSDK.initialize("50b665d167379a020000000b", gameSecret: "a918a013-842e-ceb9-19ec-c0f981894d85")
         
-        
+        //mod to propeller - swift can only access NS_ENUM's from obj-c.  Can call orientation from the propeller listener.  TODO: revert
         PropellerSDK.setOrientationLandscape()
 
         var _psdk = PropellerSDK.instance

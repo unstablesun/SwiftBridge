@@ -44,9 +44,21 @@
                                     <action selector="SetWin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLp-sG-bub"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status - Ready" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGz-IN-rl1">
+                                <rect key="frame" x="58" y="431" width="212" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="LaunchButton" destination="2ur-F6-bDJ" id="Gp1-tj-MRg"/>
+                        <outlet property="LoseButton" destination="aOR-KK-PQv" id="nC0-BX-1pu"/>
+                        <outlet property="StatusLabel" destination="kGz-IN-rl1" id="SWM-uM-Qey"/>
+                        <outlet property="WinButton" destination="jrS-DM-sBN" id="Uoe-V4-ooE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

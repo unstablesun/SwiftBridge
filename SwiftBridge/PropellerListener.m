@@ -9,31 +9,42 @@
 #import "PropellerSDK/PropellerSDK.h"
 #import "PropellerListener.h"
 
+
 @interface PropellerListener ()
 {
-    NSString *_tournID;
-    NSString *_matchID;
+    NSString *tournID;
+    NSString *matchID;
+    
+    long seed;
+    int round;
+    BOOL adsAllowed;
+    BOOL fairPlay;
+    
+    NSDictionary *options;
+    
+    NSDictionary *you;
+    NSString *yourNickname;
+    NSString *yourAvatarURL;
+    
+    NSDictionary *them;
+    NSString *theirNickname;
+    NSString *theirAvatarURL;
 }
 @end
 
+
 @implementation PropellerListener
-
-
-
 
 - (id)init
 {
     if (self = [super init])
     {
-        
-        
         // register an observer with the notification center for challenge
         // count updates when the game main menu is initialized
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(receiveChallengeCount:)
                                                      name:@"PropellerSDKChallengeCountChanged"
                                                    object:nil];
-        
         
     }
     return self;
@@ -45,8 +56,6 @@
     // unregister the observer from the notification center for challenge
     // count updates when the game main menu is cleaned up
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    
 }
 
 
@@ -69,40 +78,38 @@
 {
     NSLog(@"sdkCompletedWithExit");
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PropellerSDKCompletedWithExit" object:nil];
+
 }
 
 - (void)sdkCompletedWithMatch:(NSDictionary*)match
 {
     NSLog(@"sdkCompletedWithMatch");
     
-    _tournID = [match objectForKey:PSDK_MATCH_RESULT_TOURNAMENT_KEY];
-    _matchID = [match objectForKey:PSDK_MATCH_RESULT_MATCH_KEY];
-    
+    tournID = [match objectForKey:PSDK_MATCH_RESULT_TOURNAMENT_KEY];
+    matchID = [match objectForKey:PSDK_MATCH_RESULT_MATCH_KEY];
     
     NSDictionary *params = [match objectForKey:PSDK_MATCH_RESULT_PARAMS_KEY];
     
-    long seed = [[params objectForKey:@"seed"] longValue];
+    seed = [[params objectForKey:@"seed"] longValue];
+    round = [[params objectForKey:@"round"] integerValue];
+    adsAllowed = [[params objectForKey:@"adsAllowed"] boolValue];
+    fairPlay = [[params objectForKey:@"fairPlay"] boolValue];
     
-    int round = [[params objectForKey:@"round"] integerValue];
+    options = [params objectForKey:@"options"];
     
-    BOOL adsAllowed = [[params objectForKey:@"adsAllowed"] boolValue];
+    you = [params objectForKey:@"you"];
+    yourNickname = [you objectForKey:@"name"];
+    yourAvatarURL = [you objectForKey:@"avatar"];
     
-    BOOL fairPlay = [[params objectForKey:@"fairPlay"] boolValue];
-    
-    NSDictionary *options = [params objectForKey:@"options"];
-    
-    NSDictionary *you = [params objectForKey:@"you"];
-    NSString *yourNickname = [you objectForKey:@"name"];
-    NSString *yourAvatarURL = [you objectForKey:@"avatar"];
-    
-    NSDictionary *them = [params objectForKey:@"them"];
-    NSString *theirNickname = [them objectForKey:@"name"];
-    NSString *theirAvatarURL = [them objectForKey:@"avatar"];
+    them = [params objectForKey:@"them"];
+    theirNickname = [them objectForKey:@"name"];
+    theirAvatarURL = [them objectForKey:@"avatar"];
     
     // play the game for the given match data
     //[self startGame];
-
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PropellerSDKCompletedWithMatch" object:nil];
 }
 
 - (void)sdkFailed:(NSDictionary*)result
@@ -111,16 +118,13 @@
     
 }
 
-
-
-
 - (void)submitMatchResult:(long)score
 {
     // construct the match results dictionary using the cached match
     // data obtained from the sdkCompletedWithMatch() callback
     NSMutableDictionary *matchResult = [[NSMutableDictionary alloc] init];
-    [matchResult setObject:_tournID forKey:PSDK_MATCH_POST_TOURNAMENT_KEY];
-    [matchResult setObject:_matchID forKey:PSDK_MATCH_POST_MATCH_KEY];
+    [matchResult setObject:tournID forKey:PSDK_MATCH_POST_TOURNAMENT_KEY];
+    [matchResult setObject:matchID forKey:PSDK_MATCH_POST_MATCH_KEY];
     
     // the raw score will be used to compare results
     // between match players. This should be a positive
