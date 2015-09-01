@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController
 {
 
-    var instanceOfPropellerDelegate: PropellerListener? = nil
+    var instanceOfPropellerHandler: PropellerHandler? = nil
     
     @IBOutlet weak var StatusLabel: UILabel!
     @IBOutlet weak var LaunchButton: UIButton!
     @IBOutlet weak var WinButton: UIButton!
     @IBOutlet weak var LoseButton: UIButton!
-    
+    @IBOutlet weak var ChallengeCount: UILabel!
     
     override func viewDidLoad()
     {
@@ -35,7 +35,14 @@ class ViewController: UIViewController
             name: "PropellerSDKCompletedWithExit",
             object: nil)
         
-        instanceOfPropellerDelegate = PropellerListener()
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "ReceivedChallengeCount:",
+            name: "PropellerSDKReceivedChallengeCount",
+            object: nil)
+
+        
+        instanceOfPropellerHandler = PropellerHandler()
         
         
         var _psdk = PropellerSDK.instance
@@ -47,40 +54,51 @@ class ViewController: UIViewController
         LoseButton.enabled = false;
 
     }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
+
     @objc func MatchReadyForPlay(notification: NSNotification)
     {
-        StatusLabel.text = "Match Data Ready - Win or Lose"
+        StatusLabel.text = "Match Data Ready"
         
         LaunchButton.enabled = false;
         WinButton.enabled = true;
         LoseButton.enabled = true;
     }
+    
     @objc func SdkCompletedWithExit(notification: NSNotification)
     {
         StatusLabel.text = "SDK Clean Exit"
     }
-
-    override func didReceiveMemoryWarning()
+    
+    @objc func ReceivedChallengeCount(notification: NSNotification)
     {
-        super.didReceiveMemoryWarning()
+        StatusLabel.text = "Recieved CC"
+        
+        let _count = notification.object as! NSNumber
+        ChallengeCount.text = _count.stringValue
     }
 
     
     @IBAction func LaunchButton(sender: UIButton)
     {
         var _psdk = PropellerSDK.instance
-        _psdk()!.launch(instanceOfPropellerDelegate)
+        _psdk()!.launch(instanceOfPropellerHandler)
     }
 
     @IBAction func SetWin(sender: AnyObject)
     {
         let randomScoreadd = Int(arc4random_uniform(10000))
-        instanceOfPropellerDelegate?.submitMatchResult(10000 + randomScoreadd)
+        instanceOfPropellerHandler?.submitMatchResult(10000 + randomScoreadd)
         
         StatusLabel.text = "Win Set"
         
         var _psdk = PropellerSDK.instance
-        _psdk()!.launch(instanceOfPropellerDelegate)
+        _psdk()!.launch(instanceOfPropellerHandler)
         
         LaunchButton.enabled = true;
         WinButton.enabled = false;
@@ -90,12 +108,12 @@ class ViewController: UIViewController
     @IBAction func SetLose(sender: AnyObject)
     {
         let randomScoreadd = Int(arc4random_uniform(500))
-        instanceOfPropellerDelegate?.submitMatchResult(500 + randomScoreadd)
+        instanceOfPropellerHandler?.submitMatchResult(500 + randomScoreadd)
         
         StatusLabel.text = "Lose Set"
         
         var _psdk = PropellerSDK.instance
-        _psdk()!.launch(instanceOfPropellerDelegate)
+        _psdk()!.launch(instanceOfPropellerHandler)
         
         LaunchButton.enabled = true;
         WinButton.enabled = false;

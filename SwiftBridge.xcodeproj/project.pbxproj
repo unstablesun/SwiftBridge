@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B28749D1B96483400270561 /* PropellerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B28749B1B96483400270561 /* PropellerHandler.m */; };
+		6B28749E1B96483400270561 /* PropellerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B28749B1B96483400270561 /* PropellerHandler.m */; };
 		6B2E5CA51B94BA6400D700C3 /* menubutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2E5CA41B94BA6400D700C3 /* menubutton.png */; };
 		6B9BC62C1B8FCDA4000C4655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */; };
 		6B9BC62E1B8FCDA4000C4655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9BC62D1B8FCDA4000C4655 /* ViewController.swift */; };
@@ -23,8 +25,6 @@
 		6BE301341B90C2E0003A93DB /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE301331B90C2E0003A93DB /* libicucore.dylib */; };
 		6BE301361B90C320003A93DB /* libPropellerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE301351B90C320003A93DB /* libPropellerSDK.a */; };
 		6BE3013D1B90D3BF003A93DB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE3013C1B90D3BF003A93DB /* WebKit.framework */; };
-		6BE301441B90F6C8003A93DB /* PropellerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE301431B90F6C8003A93DB /* PropellerListener.m */; };
-		6BE301451B90F6C8003A93DB /* PropellerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE301431B90F6C8003A93DB /* PropellerListener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B0245EA1B91182F001B5DB4 /* PropellerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerListener.h; sourceTree = "<group>"; };
+		6B28749B1B96483400270561 /* PropellerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropellerHandler.m; sourceTree = "<group>"; };
+		6B28749C1B96483400270561 /* PropellerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerHandler.h; sourceTree = "<group>"; };
 		6B2E5CA41B94BA6400D700C3 /* menubutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubutton.png; sourceTree = "<group>"; };
 		6B9BC6261B8FCDA4000C4655 /* SwiftBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9BC62A1B8FCDA4000C4655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		6BE301351B90C320003A93DB /* libPropellerSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPropellerSDK.a; path = SwiftBridge/PropellerSDK/libPropellerSDK.a; sourceTree = "<group>"; };
 		6BE301371B90C5AA003A93DB /* SwiftBridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftBridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		6BE3013C1B90D3BF003A93DB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		6BE301431B90F6C8003A93DB /* PropellerListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropellerListener.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +118,8 @@
 		6B9BC6281B8FCDA4000C4655 /* SwiftBridge */ = {
 			isa = PBXGroup;
 			children = (
+				6B28749B1B96483400270561 /* PropellerHandler.m */,
+				6B28749C1B96483400270561 /* PropellerHandler.h */,
 				6B2E5CA41B94BA6400D700C3 /* menubutton.png */,
 				6BE301271B90C19F003A93DB /* PropellerSDK */,
 				6B9BC62B1B8FCDA4000C4655 /* AppDelegate.swift */,
@@ -127,8 +129,6 @@
 				6B9BC6341B8FCDA4000C4655 /* LaunchScreen.xib */,
 				6B9BC6291B8FCDA4000C4655 /* Supporting Files */,
 				6BE301371B90C5AA003A93DB /* SwiftBridge-Bridging-Header.h */,
-				6BE301431B90F6C8003A93DB /* PropellerListener.m */,
-				6B0245EA1B91182F001B5DB4 /* PropellerListener.h */,
 			);
 			path = SwiftBridge;
 			sourceTree = "<group>";
@@ -260,9 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BE301441B90F6C8003A93DB /* PropellerListener.m in Sources */,
 				6B9BC62E1B8FCDA4000C4655 /* ViewController.swift in Sources */,
 				6B9BC62C1B8FCDA4000C4655 /* AppDelegate.swift in Sources */,
+				6B28749D1B96483400270561 /* PropellerHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B28749E1B96483400270561 /* PropellerHandler.m in Sources */,
 				6B9BC6421B8FCDA4000C4655 /* SwiftBridgeTests.swift in Sources */,
-				6BE301451B90F6C8003A93DB /* PropellerListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

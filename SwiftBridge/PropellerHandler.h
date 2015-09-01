@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Dave Hards. All rights reserved.
 //
 
-#ifndef SwiftBridge_PropellerListener_h
-#define SwiftBridge_PropellerListener_h
+#ifndef SwiftBridge_PropellerHandler_h
+#define SwiftBridge_PropellerHandler_h
 
-@interface PropellerListener : NSObject <PropellerSDKDelegate>
+@interface PropellerHandler : NSObject <PropellerSDKDelegate>
 
 
 - (void)submitMatchResult:(long)score;

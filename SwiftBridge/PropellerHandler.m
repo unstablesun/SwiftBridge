@@ -7,10 +7,10 @@
 //
 
 #import "PropellerSDK/PropellerSDK.h"
-#import "PropellerListener.h"
+#import "PropellerHandler.h"
 
 
-@interface PropellerListener ()
+@interface PropellerHandler ()
 {
     NSString *tournID;
     NSString *matchID;
@@ -33,7 +33,7 @@
 @end
 
 
-@implementation PropellerListener
+@implementation PropellerHandler
 
 - (id)init
 {
@@ -65,14 +65,14 @@
     NSDictionary *userInfo = notification.userInfo;
     int count = [[userInfo objectForKey:@"count"] integerValue];
     
+    NSNumber *_count = [NSNumber numberWithInt:count];
+    
     // update the main menu multiplayer button challenge counter with the new challenge count
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PropellerSDKReceivedChallengeCount" object:_count];
     
     // update the application icon badge number
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:count];
 }
-
-
-
 
 - (void)sdkCompletedWithExit
 {
